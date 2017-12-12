@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import urllib2
+#import urllib2
 import urllib
 import re
 
@@ -59,14 +59,14 @@ requestUrl = url+'?'+data
 imgRequestUrl = imgUrl+'?'+imgData
 
 # 请求数据
-request = urllib2.Request(imgRequestUrl)
-response = urllib2.urlopen(request)
+request = urllib.Request(requestUrl)
+response = urllib.urlopen(request)
 result = response.read()
 result = result.replace('\\', '')
 # 抽取地址
-urls = re.findall(r'http://(?!img[0-9]).+?\.jpg', result, re.I)
-print len(urls)
+urls = re.findall(r'http://[^"]+jpg', result, re.I)
+print(len(urls))
 for item in urls:
-    print item
+    print(item)
 
-print 'that is all'
+print('that is all')
