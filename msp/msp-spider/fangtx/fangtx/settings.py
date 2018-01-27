@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for anjuke project
+# Scrapy settings for fangtx project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,14 +9,14 @@
 #     http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #     http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'anjuke'
+BOT_NAME = 'fangtx'
 
-SPIDER_MODULES = ['anjuke.spiders']
-NEWSPIDER_MODULE = 'anjuke.spiders'
+SPIDER_MODULES = ['fangtx.spiders']
+NEWSPIDER_MODULE = 'fangtx.spiders'
 
 FEED_EXPORT_ENCODING = 'utf-8'
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'anjuke (+http://www.yourdomain.com)'
+#USER_AGENT = 'fangtx (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -47,13 +47,13 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'anjuke.middlewares.AnjukeSpiderMiddleware': 543,
+#    'fangtx.middlewares.FangtxSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'anjuke.middlewares.MyCustomDownloaderMiddleware': 543,
+#    'fangtx.middlewares.MyCustomDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -65,7 +65,7 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 #ITEM_PIPELINES = {
-#    'anjuke.pipelines.AnjukePipeline': 300,
+#    'fangtx.pipelines.FangtxPipeline': 300,
 #}
 
 # Enable and configure the AutoThrottle extension (disabled by default)

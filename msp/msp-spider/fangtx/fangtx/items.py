@@ -8,8 +8,9 @@
 import scrapy
 
 
-class AnjukeItem(scrapy.Item):
+class FangtxItem(scrapy.Item):
     # define the fields for your item here like:
+    # name = scrapy.Field()
     name = scrapy.Field()
     address = scrapy.Field()
     price = scrapy.Field()
