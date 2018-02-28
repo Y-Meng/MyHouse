@@ -64,9 +64,10 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'fangtx.pipelines.FangtxPipeline': 300,
-#}
+# 可以配置多个pipelines 0-1000 优先级
+ITEM_PIPELINES = {
+   'fangtx.pipelines.FangtxPipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
