@@ -26,7 +26,12 @@ class AjkLoupanSpider(scrapy.Spider):
             item['name'] = sel.xpath('div/a/h3/span/text()').extract()[0]
             item['address'] = sel.xpath('div/a[2]/span/text()').extract()[0]
             item['rooms'] = sel.xpath('div/a[3]/span/text()').extract()
-            item['price'] = sel.xpath('a[2]/p/span/text()').extract()[0]
+            price = sel.xpath('a[2]/p/span/text()').extract()[0]
+            try:
+                item['price'] = int(price)
+            except:
+                item['price'] = 99999
+
             yield item
 
 
