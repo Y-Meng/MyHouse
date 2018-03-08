@@ -20,8 +20,8 @@ class AnjukePipeline(object):
     def process_item(self, item, spider):
         content = json.dumps(dict(item), ensure_ascii=False).replace("\\t", "").replace("\\n","") + ", \n"
         self.f.write(content)
-        self.cursor.execute("insert into g_house (name,address,room,price,link) values ('%s','%s','%s',%d,'%s')" % \
-                            (item['name'], item['address'], ','.join(item['rooms']), item['price'], item['link']))
+        self.cursor.execute("insert into g_house (name,address,room,price,link, source) values ('%s','%s','%s',%d,'%s')" % \
+                            (item['name'], item['address'], ','.join(item['rooms']), item['price'], item['link'], "安居客"))
         self.conn.commit()
         return item
 
