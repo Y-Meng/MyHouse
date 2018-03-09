@@ -6,12 +6,18 @@
 # http://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
 from scrapy import signals
+from scrapy import Request
+from article.items import ArticleItem
+from article.Bloomfilter import BloomFilter
 
 
 class ArticleSpiderMiddleware(object):
     # Not all methods need to be defined. If a method is not defined,
     # scrapy acts as if the spider middleware does not modify the
     # passed objects.
+
+    def __init__(self):
+        self.bf = BloomFilter()
 
     @classmethod
     def from_crawler(cls, crawler):
@@ -33,7 +39,16 @@ class ArticleSpiderMiddleware(object):
 
         # Must return an iterable of Request, dict or Item objects.
         for i in result:
-            yield i
+            # bloom filter
+            if isinstance(i, Request):
+                if self.bf.isContains(i.url):
+                    print i.url + 'exists!'
+                else:
+                    yield i
+            else:
+                if isinstance(i, ArticleItem):
+                    self.bf.insert(i.url)
+                yield i
 
     def process_spider_exception(self, response, exception, spider):
         # Called when a spider or process_spider_input() method
@@ -54,3 +69,4 @@ class ArticleSpiderMiddleware(object):
 
     def spider_opened(self, spider):
         spider.logger.info('Spider opened: %s' % spider.name)
+
