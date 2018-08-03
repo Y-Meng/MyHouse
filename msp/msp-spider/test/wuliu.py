@@ -11,7 +11,7 @@ hui_shou_dian = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 
 hui_shou_liang = [153, 199, 172, 230, 153, 146, 167, 137, 151, 149, 229, 184, 153, 291, 138, 257, 214, 140, 160, 148, 121]
 
 # 中转站到处理中心距离
-DISTANCE_C_Z = [1000, 1050, 2000, 2500]
+DISTANCE_C_Z = [10, 11, 20, 25]
 
 # 回收点到中转站距离： M*N 矩阵
 DISTANCE_Z_H = [
@@ -54,21 +54,21 @@ global hui_shou_zu_zzz
 hui_shou_zu_zzz = [[], [], [], []]
 
 # 收集车辆容量和成本
-shou_ji_che_v = 600
-shou_ji_che_c = 0.01
+shou_ji_che_v = 800
+shou_ji_che_c = 0.02
 
 # 运输车辆容量和成本
-yun_shu_che_v = 2000
-yun_shu_che_c = 0.02
+yun_shu_che_v = 2500
+yun_shu_che_c = 0.04
 
 # 库存成本
-ku_cun_c = 0.05
+ku_cun_c = 0.08
 
 # 处理成本
-chu_li_c = 0.02
+chu_li_c = 0.06
 
 # 处理周期T天
-T = 300
+T = 30
 
 
 # -----------------------算法第一阶段计算模型初始解-----------------------------------------------------
@@ -117,7 +117,7 @@ def optimize_path():
         for i in range(0, len(hui_shou_zu_zzz[k])):
             for n in range(0, len(hui_shou_zu[hui_shou_zu_zzz[k][i]])):
                 distance += DISTANCE_Z_H[k][hui_shou_zu[hui_shou_zu_zzz[k][i]][n]-1]
-        hui_shou_ju_li.append(distance)
+        hui_shou_ju_li.append(int(distance))
     print "回收组优化路径"
     print hui_shou_ju_li
 
