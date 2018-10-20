@@ -6,3 +6,5 @@ msp/msp.iml
 msp/.idea/vcs.xml
 msp/.idea/workspace.xml
 *.iml
+*.xml
+*.pyc
